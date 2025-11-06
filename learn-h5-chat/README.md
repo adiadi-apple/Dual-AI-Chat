@@ -2,6 +2,10 @@
 
 这是一个简单的学习项目，用来了解如何从零开始构建一个 H5 聊天界面，并集成不同的 AI API。
 
+## 🚀 一键部署到 Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fadiadi-apple%2FDual-AI-Chat&project-name=learn-h5-chat&repository-name=learn-h5-chat&root-directory=learn-h5-chat)
+
 ## 🎯 项目目标
 
 - ✅ 学习如何搭建简单的 React + TypeScript 聊天界面
@@ -99,7 +103,11 @@ learn-h5-chat/
 
 ## 🌐 Vercel 部署
 
-### 方式 1：GitHub 集成
+### 方式 1：一键部署（推荐）
+
+点击上方的 "Deploy with Vercel" 按钮，即可一键部署到 Vercel。只需登录 GitHub 和 Vercel 账户，自动配置 Root Directory 为 `learn-h5-chat`。
+
+### 方式 2：GitHub 集成
 
 1. 将代码推送到 GitHub
 2. 访问 [https://vercel.com](https://vercel.com)
@@ -108,7 +116,7 @@ learn-h5-chat/
 5. 选择 `learn-h5-chat` 文件夹作为 Root Directory
 6. 部署完成！
 
-### 方式 2：Vercel CLI
+### 方式 3：Vercel CLI
 
 ```bash
 # 全局安装 Vercel CLI
