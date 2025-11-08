@@ -4,6 +4,7 @@ export const GEMINI_PRO_MODEL_ID = 'gemini-2.5-pro';
 export const GEMINI_FLASH_LITE_PREVIEW_MODEL_ID = 'gemini-2.5-flash-lite-preview-06-17';
 export const GEMMA_3_27B_IT_MODEL_ID = 'gemma-3-27b-it';
 export const GEMINI_2_5_PRO_PREVIEW_05_06_MODEL_ID = 'gemini-2.5-pro-preview-05-06';
+export const GEMINI_EXP_1206_MODEL_ID = 'gemini-exp-1206';
 
 
 export interface AiModel {
@@ -12,29 +13,33 @@ export interface AiModel {
   apiName: string;
   supportsThinkingConfig?: boolean;
   supportsSystemInstruction?: boolean;
+  category?: 'flagship' | 'balanced' | 'lightweight' | 'experimental';
+  releaseDate?: string;
+  contextWindow?: number; // in tokens
 }
 
 export const MODELS: AiModel[] = [
+  // Flagship Models - 高能力、生产级
+  {
+    id: 'gemini-2.5-pro',
+    name: 'Gemini 2.5 Pro',
+    apiName: GEMINI_PRO_MODEL_ID, 
+    supportsThinkingConfig: true, 
+    supportsSystemInstruction: true,
+    category: 'flagship',
+    releaseDate: '2025-01',
+    contextWindow: 1000000,
+  },
+  // Balanced Models - 性价比最优
   {
     id: 'gemini-2.5-flash',
     name: 'Gemini 2.5 Flash',
     apiName: 'gemini-2.5-flash', 
     supportsThinkingConfig: true,
     supportsSystemInstruction: true,
-  },
-  {
-    id: 'pro-2.5',
-    name: 'Gemini 2.5 Pro',
-    apiName: GEMINI_PRO_MODEL_ID, 
-    supportsThinkingConfig: true, 
-    supportsSystemInstruction: true,
-  },
-  {
-    id: 'pro-2.5-preview-05-06',
-    name: 'Gemini 2.5 Pro 0506',
-    apiName: GEMINI_2_5_PRO_PREVIEW_05_06_MODEL_ID,
-    supportsThinkingConfig: true,
-    supportsSystemInstruction: true,
+    category: 'balanced',
+    releaseDate: '2024-12',
+    contextWindow: 1000000,
   },
   {
     id: 'flash-lite-preview-06-17',
@@ -42,13 +47,41 @@ export const MODELS: AiModel[] = [
     apiName: GEMINI_FLASH_LITE_PREVIEW_MODEL_ID, 
     supportsThinkingConfig: true,
     supportsSystemInstruction: true,
+    category: 'lightweight',
+    releaseDate: '2024-12',
+    contextWindow: 32000,
+  },
+  // Experimental Models - 最新研究版本
+  {
+    id: 'gemini-exp-1206',
+    name: 'Gemini Experimental 1206',
+    apiName: GEMINI_EXP_1206_MODEL_ID,
+    supportsThinkingConfig: true,
+    supportsSystemInstruction: true,
+    category: 'experimental',
+    releaseDate: '2024-12',
+    contextWindow: 1000000,
+  },
+  // Specialized Models
+  {
+    id: 'pro-2.5-preview-05-06',
+    name: 'Gemini 2.5 Pro Preview 0506',
+    apiName: GEMINI_2_5_PRO_PREVIEW_05_06_MODEL_ID,
+    supportsThinkingConfig: true,
+    supportsSystemInstruction: true,
+    category: 'experimental',
+    releaseDate: '2024-05',
+    contextWindow: 1000000,
   },
   {
     id: 'gemma-3-27b-it',
-    name: 'Gemma-3-27B',
+    name: 'Gemma 3 27B IT',
     apiName: GEMMA_3_27B_IT_MODEL_ID, 
     supportsThinkingConfig: false,
     supportsSystemInstruction: false,
+    category: 'lightweight',
+    releaseDate: '2024-12',
+    contextWindow: 8000,
   },
 ];
 
